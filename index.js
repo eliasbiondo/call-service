@@ -31,7 +31,7 @@ router.post("/:pin", async (req, res) => {
     // Setting up the message.
     twiml.say(str);
 
-    res.send(twiml.toString())
+    res.send(twiml.toString());
 
 })
 
