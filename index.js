@@ -20,11 +20,13 @@ router.post("/:pin", async (req, res) => {
 
     // Getting the pin code from request body.
     const { pin } = req.params;
-    
+
+    const splittedPin = pin.split("");
+
     // Create TwiML response
     const twiml = new VoiceResponse();
 
-    const str = `Hello! Your Hurb Pin Code is ${pin}`;
+    const str = `Hello! Your Hurb Pin Code is ${splittedPin[0]}, ${splittedPin[1]}, ${splittedPin[2]}, ${splittedPin[3]}. Repeating... Your Hurb Pin Code is ${splittedPin[0]}, ${splittedPin[1]}, ${splittedPin[2]}, ${splittedPin[3]}.`;
 
     // Setting up the message.
     twiml.say({ voice: "alice" }, str);
