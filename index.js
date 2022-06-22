@@ -16,6 +16,8 @@ const router = express.Router();
 
 router.get("/:pin", async (req, res) => {
 
+    res.type('text/xml')
+
     // Getting the pin code from request body.
     const { pin } = req.params;
     
@@ -27,11 +29,7 @@ router.get("/:pin", async (req, res) => {
     // Setting up the message.
     twiml.say({ voice: "alice" }, str);
 
-    // Wrinting the response header.
-    res.writeHead(200, { 'Content-Type': 'text/xml' });
-
-    // Sending the response.
-    res.end(twiml.toString());
+    res.send(twiml.toString())
 
 })
 
