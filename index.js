@@ -14,7 +14,7 @@ app.use(cors());
 // Instacing the application router.
 const router = express.Router();
 
-router.get("/:pin", async (req, res) => {
+router.post("/:pin", async (req, res) => {
 
     res.type('text/xml')
 
