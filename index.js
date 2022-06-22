@@ -22,8 +22,10 @@ router.get("/:pin", async (req, res) => {
     // Create TwiML response
     const twiml = new VoiceResponse();
 
+    const str = `Hello! Your Hurb Pin Code is ${pin}`;
+
     // Setting up the message.
-    twiml.say(`Hello! Your Hurb Pin Code is ${pin}`);
+    twiml.say({ voice: "alice" }, str);
 
     // Wrinting the response header.
     res.writeHead(200, { 'Content-Type': 'text/xml' });
