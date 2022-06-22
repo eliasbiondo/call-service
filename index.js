@@ -26,10 +26,10 @@ router.post("/:pin", async (req, res) => {
     // Create TwiML response
     const twiml = new VoiceResponse();
 
-    const str = `Hello! Your Hurb Pin Code is ${splittedPin[0]}, ${splittedPin[1]}, ${splittedPin[2]}, ${splittedPin[3]}. Repeating... Your Hurb Pin Code is ${splittedPin[0]}, ${splittedPin[1]}, ${splittedPin[2]}, ${splittedPin[3]}.`;
+    const str = `Olá! O seu código Pin da plataforma Hurb para Parceiros é ${splittedPin[0]}, ${splittedPin[1]}, ${splittedPin[2]}, ${splittedPin[3]}. Repetindo... O seu código Pin da plataforma Hurb para Parceiros é ${splittedPin[0]}, ${splittedPin[1]}, ${splittedPin[2]}, ${splittedPin[3]}. Obrigado.`;
 
     // Setting up the message.
-    twiml.say({ voice: "alice" }, str);
+    twiml.say({ voice: "woman", "language":"pt-BR" }, str);
 
     res.send(twiml.toString())
 
